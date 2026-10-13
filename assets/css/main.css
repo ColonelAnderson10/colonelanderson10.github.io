@@ -2299,7 +2299,7 @@ input[type="radio"] + label:before {
   border-radius: 100%;
   display: block;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 80%;
   width: 100%;
 }
 
