@@ -2295,8 +2295,11 @@ input[type="radio"] + label:before {
 }
 
 .image.avatar img {
+  aspect-ratio: 1 / 1;
   border-radius: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center top;
   width: 100%;
 }
 
