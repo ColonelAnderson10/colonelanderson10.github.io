@@ -12,7 +12,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css?v=3" />
   </head>
   <body class="is-preload">
     <!-- Header -->
@@ -100,7 +100,7 @@
           <div class="container">
             <h3>Mes champs d'intérêt et d'expertise</h3>
             <p>
-            Animé par une curiosité insatiable, je m'intéresse à de nombreux domaines, avec
+            Animé par une curiosité insatiable, je suis un autodidacte qui s'intéresse à de nombreux domaines, avec
             des niveaux d'expertise différents. Voici les six principaux :
             </p>
             <ul class="feature-icons">
@@ -121,7 +121,7 @@
             <p>
               Dans cette section, vous trouverez mon curriculum vitae. Cette version
               est académique : elle présente donc tous mes travaux universitaires ainsi
-              que le contenu habituel, comme l'expérience de travail.
+              que tous les éléments qu'un curriculum vitae standard le demande. 
             </p>
             <div class="features">
               <article>
@@ -158,6 +158,20 @@
                   Envoyer un courriel
                 </a>
               </div>
+            </div>
+
+            <!-- Formulaire de contact : remplacez your-email@example.com par votre adresse -->
+            <div class="contact-box">
+              <h2>Contactez-moi</h2>
+              <form action="https://formsubmit.co/your-email@example.com" method="POST">
+                <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="text" name="_honey" style="display: none" />
+                <input type="text" name="nom" placeholder="Votre nom" required />
+                <input type="email" name="email" placeholder="Votre adresse courriel" required />
+                <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+                <button type="submit">Envoyer</button>
+              </form>
             </div>
           </div>
         </section>
