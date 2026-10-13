@@ -1091,11 +1091,11 @@
 			color: _palette(accent1, fg-bold) !important;
 
 			&:hover {
-				background-color: lighten(_palette(accent1, bg), 5);
+				background-color: #852f44;
 			}
 
 			&:active {
-				background-color: darken(_palette(accent1, bg), 5);
+				background-color: #4f1c28;
 			}
 		}
 
