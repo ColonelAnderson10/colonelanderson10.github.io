@@ -143,6 +143,57 @@
 					visibleClass: 'header-visible'
 				});
 
+	// Barre du haut escamotable (ordinateur seulement).
+		var revealZone = 40; // px depuis le haut de la fenêtre qui font réapparaître la bande
+
+		function isDesktop() {
+			return breakpoints.active('>medium');
+		}
+
+		// La souris quitte la bande : on la cache.
+			$header.on('mouseleave', function() {
+				if (isDesktop())
+					$header.addClass('is-hidden');
+			});
+
+		// La souris revient près du haut de la fenêtre : on la réaffiche.
+			$window.on('mousemove', function(event) {
+				if (event.clientY <= revealZone)
+					$header.removeClass('is-hidden');
+			});
+
+		// Défilement sans la souris sur la bande : on la cache aussi.
+			$window.on('scroll', function() {
+				if (isDesktop() && $window.scrollTop() > 0 && !$header.is(':hover'))
+					$header.addClass('is-hidden');
+			});
+
+		// Navigation au clavier : la bande reste visible.
+			$header.on('focusin', function() {
+				$header.removeClass('is-hidden');
+			});
+
+	// Barre de progression de lecture.
+		var $progress = $('#progressBar > span'),
+			progressQueued = false;
+
+		function updateProgress() {
+			var max = document.documentElement.scrollHeight - window.innerHeight,
+				ratio = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+
+			$progress.css('transform', 'scaleX(' + ratio + ')');
+			progressQueued = false;
+		}
+
+		$window.on('scroll resize load', function() {
+			if (!progressQueued) {
+				progressQueued = true;
+				window.requestAnimationFrame(updateProgress);
+			}
+		});
+
+		updateProgress();
+
 	// Scrolly.
 		$('.scrolly').scrolly({
 			speed: 1000,
@@ -151,7 +202,7 @@
 				if (breakpoints.active('<=medium'))
 					return $titleBar.height();
 
-				return 0;
+				return $header.outerHeight();
 
 			}
 		});
