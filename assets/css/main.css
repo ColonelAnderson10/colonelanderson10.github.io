@@ -3543,3 +3543,111 @@ input[type="button"]:disabled,
     font-size: 1.75em;
   }
 }
+
+/* Transitions */
+
+/* 5. Fondu au chargement de la page */
+
+#wrapper {
+  transition:
+    opacity 0.8s ease,
+    transform 0.5s ease;
+}
+
+#header > header,
+#header > nav,
+#header > footer {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+#header > nav {
+  transition-delay: 0.15s;
+}
+
+#header > footer {
+  transition-delay: 0.3s;
+}
+
+body.is-preload #wrapper {
+  opacity: 0;
+}
+
+body.is-preload #header > header,
+body.is-preload #header > nav,
+body.is-preload #header > footer {
+  opacity: 0;
+  transform: translateY(1em);
+}
+
+/* 1. Apparition des sections au défilement */
+
+#main > section > .container,
+#main > section > .image.main {
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+#main > section.inactive > .container,
+#main > section.inactive > .image.main {
+  opacity: 0;
+  transform: translateY(2em);
+}
+
+/* 3. Menu animé + titres qui ressortent au survol */
+
+#header > nav {
+  overflow: hidden;
+}
+
+#header > nav ul li a {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.25s ease,
+    letter-spacing 0.25s ease,
+    transform 0.25s ease;
+}
+
+#header > nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 4px 0 0 #ffffff;
+  letter-spacing: 0.04em;
+  transform: scale(1.08);
+}
+
+#header > nav ul li a.active:hover {
+  background-color: #ffffff;
+  box-shadow: inset 4px 0 0 #6b2737;
+}
+
+/* Animations réduites si l'utilisateur l'a demandé dans son système */
+
+@media (prefers-reduced-motion: reduce) {
+  #wrapper {
+    transition: transform 0.5s ease !important;
+  }
+
+  #header > header,
+  #header > nav,
+  #header > footer,
+  #main > section > .container,
+  #main > section > .image.main,
+  #header > nav ul li a {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  #main > section.inactive > .container,
+  #main > section.inactive > .image.main,
+  body.is-preload #wrapper,
+  body.is-preload #header > header,
+  body.is-preload #header > nav,
+  body.is-preload #header > footer {
+    opacity: 1;
+  }
+}
