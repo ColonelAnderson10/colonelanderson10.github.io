@@ -3829,3 +3829,97 @@ body.is-preload #header > footer {
     transition: none !important;
   }
 }
+
+/* 6. Portrait et titre à côté du texte de présentation */
+
+#one .intro {
+  -moz-align-items: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  gap: 2.5em;
+}
+
+#one .intro > p {
+  -moz-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 0;
+}
+
+#one .profile-card {
+  -moz-flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  background: #6b2737;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(107, 39, 55, 0.25);
+  color: #f0dde1;
+  padding: 2em 1.5em;
+  text-align: center;
+  width: 17em;
+}
+
+#one .profile-card .avatar {
+  display: block;
+  margin: 0 auto 1.5em auto;
+  width: 8em;
+}
+
+#one .profile-card h3 {
+  color: #ffffff;
+  font-size: 1.5em;
+  line-height: 1.3;
+  margin: 0;
+}
+
+#one .profile-card p.tagline {
+  font-size: 0.85em;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 1em 0 0 0;
+}
+
+#one .profile-card p.tagline span {
+  display: block;
+}
+
+#one .profile-card p.tagline .role {
+  font-size: 0.85em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+#one .profile-card p.tagline .program {
+  border-top: solid 1px rgba(255, 255, 255, 0.4);
+  margin: 0.75em auto 0 auto;
+  padding-top: 0.75em;
+}
+
+/* Petits écrans : la carte passe au-dessus du texte */
+
+@media screen and (max-width: 736px) {
+  #one .intro {
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    gap: 2em;
+  }
+
+  #one .profile-card {
+    max-width: 100%;
+  }
+}
