@@ -3923,3 +3923,11 @@ body.is-preload #header > footer {
     max-width: 100%;
   }
 }
+
+/* 7. Titres de section centrés (mise en page verticale) */
+
+#main header.major,
+#main > section > .container > h3,
+.contact-box h2 {
+  text-align: center;
+}
